@@ -11,13 +11,17 @@ Mrz 13, 2014 9:31:29 AM com.hazelcast.config.XmlConfigBuilder
 Warnung: Could not find hazelcast.xml in classpath.
 Hazelcast will use hazelcast-default.xml config file in jar.
 Mrz 13, 2014 9:31:29 AM com.hazelcast.config.XmlConfigBuilder
-Information: Using configuration file file:/Users/noctarius/.m2/repository/com/hazelcast/hazelcast/3.2-RC2/hazelcast-3.2-RC2.jar!/hazelcast-default.xml in the classpath.
+Information: Using configuration file file:/Users/noctarius/.m2/\
+  repository/com/hazelcast/hazelcast/3.2-RC2/hazelcast-3.2-RC2.jar!\
+  /hazelcast-default.xml in the classpath.
 Mrz 13, 2014 9:31:30 AM com.hazelcast.instance.DefaultAddressPicker
 Information: Prefer IPv4 stack is true.
 Mrz 13, 2014 9:31:30 AM com.hazelcast.instance.DefaultAddressPicker
-Information: Picked Address[192.168.2.157]:5701, using socket ServerSocket[addr=/0:0:0:0:0:0:0:0,localport=5701], bind any local is true
+Information: Picked Address[192.168.2.157]:5701, using socket ServerSocket\
+  [addr=/0:0:0:0:0:0:0:0,localport=5701], bind any local is true
 Mrz 13, 2014 9:31:30 AM com.hazelcast.system
-Information: [192.168.2.157]:5701 [dev] [3.2-RC2] Hazelcast Community Edition 3.2-RC2 (20140306) starting at Address[192.168.2.157]:5701
+Information: [192.168.2.157]:5701 [dev] [3.2-RC2] Hazelcast Community Edition\
+  3.2-RC2 (20140306) starting at Address[192.168.2.157]:5701
 Mrz 13, 2014 9:31:30 AM com.hazelcast.system
 Information: [192.168.2.157]:5701 [dev] [3.2-RC2] Copyright (C) 2008-2013 Hazelcast.com
 Mrz 13, 2014 9:31:30 AM com.hazelcast.instance.Node
@@ -35,7 +39,8 @@ Members [1] {
 Mrz 13, 2014 9:31:38 AM com.hazelcast.core.LifecycleService
 Information: [192.168.2.157]:5701 [dev] [3.2-RC2] Address[192.168.2.157]:5701 is STARTED
 Mrz 13, 2014 9:31:38 AM com.hazelcast.partition.InternalPartitionService
-Information: [192.168.2.157]:5701 [dev] [3.2-RC2] Initializing cluster partition table first arrangement...
+Information: [192.168.2.157]:5701 [dev] [3.2-RC2] Initializing cluster partition table\
+  first arrangement...
 Calculation finished! :)
 Counts per words over 3 files:
 	Word 'facilisis.' occured 2 times
