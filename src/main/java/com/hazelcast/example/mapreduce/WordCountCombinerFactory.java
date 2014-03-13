@@ -24,6 +24,7 @@ public class WordCountCombinerFactory
 
     @Override
     public Combiner<String, Long, Long> newCombiner(String key) {
+        // Create a new Combiner for the given key
         return new WordCountCombiner();
     }
 
@@ -34,13 +35,19 @@ public class WordCountCombinerFactory
 
         @Override
         public void combine(String key, Long value) {
+            // Increment the per chunk sum
             sum++;
         }
 
         @Override
         public Long finalizeChunk() {
+            // Store the current amount
             long chunk = sum;
+
+            // Reset the per chunk sum
             sum = 0;
+
+            // Return the previously stored sum
             return chunk;
         }
     }

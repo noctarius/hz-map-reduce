@@ -27,6 +27,7 @@ public class WordCountCollator
     public Long collate(Iterable<Map.Entry<String, Long>> values) {
         long sum = 0;
 
+        // Just sum up all resulting numbers to calculate the overall amount of words
         for (Map.Entry<String, Long> entry : values) {
             sum += entry.getValue().longValue();
         }

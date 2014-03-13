@@ -24,6 +24,7 @@ public class WordCountReducerFactory
 
     @Override
     public Reducer<String, Long, Long> newReducer(String key) {
+        // Create a new Reducer for the given key
         return new WordCountReducer();
     }
 
@@ -34,11 +35,13 @@ public class WordCountReducerFactory
 
         @Override
         public void reduce(Long value) {
+            // Just increment the sum by the pre combined chunk value
             sum += value.longValue();
         }
 
         @Override
         public Long finalizeReduce() {
+            // Return the final reduced sum
             return sum;
         }
     }

@@ -30,6 +30,15 @@ import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import java.util.Map;
 
+/**
+ * A basic and simple MapReduce demo application for the Hazelcast MR framework.
+ * The example Lorem Ipsum texts were created by this awesome generator: http://www.lipsum.com/
+ *
+ * For any further questions feel free
+ * - to ask at the mailing list: https://groups.google.com/forum/#!forum/hazelcast
+ * - read the Javadoc: http://hazelcast.org/docs/latest/javadoc/
+ * - read the documentation this demo is for: http://bit.ly/1nQSxhH
+ */
 public class MapReduceDemo {
 
     private static final String[] DATA_RESOURCES_TO_LOAD = {"text1.txt", "text2.txt", "text3.txt"};
@@ -59,13 +68,16 @@ public class MapReduceDemo {
     private static Map<String, Long> mapReduce(HazelcastInstance hazelcastInstance)
             throws Exception {
 
+        // Retrieving the JobTracker by name
         JobTracker jobTracker = hazelcastInstance.getJobTracker("default");
 
+        // Creating the KeyValueSource for a Hazelcast IMap
         IMap<String, String> map = hazelcastInstance.getMap("articles");
         KeyValueSource<String, String> source = KeyValueSource.fromMap(map);
 
         Job<String, String> job = jobTracker.newJob(source);
 
+        // Creating a new Job
         ICompletableFuture<Map<String, Long>> future = job // returned future
                 .mapper(new TokenizerMapper())             // adding a mapper
                 .combiner(new WordCountCombinerFactory())  // adding a combiner through the factory
@@ -82,11 +94,14 @@ public class MapReduceDemo {
     private static long mapReduceCollate(HazelcastInstance hazelcastInstance)
             throws Exception {
 
+        // Retrieving the JobTracker by name
         JobTracker jobTracker = hazelcastInstance.getJobTracker("default");
 
+        // Creating the KeyValueSource for a Hazelcast IMap
         IMap<String, String> map = hazelcastInstance.getMap("articles");
         KeyValueSource<String, String> source = KeyValueSource.fromMap(map);
 
+        // Creating a new Job
         Job<String, String> job = jobTracker.newJob(source);
 
         ICompletableFuture<Long> future = job // returned future
