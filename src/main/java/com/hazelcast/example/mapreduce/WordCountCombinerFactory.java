@@ -23,20 +23,19 @@ public class WordCountCombinerFactory
         implements CombinerFactory<String, Long, Long> {
 
     @Override
-    public Combiner<String, Long, Long> newCombiner(String key) {
+    public Combiner<Long, Long> newCombiner(String key) {
         // Create a new Combiner for the given key
         return new WordCountCombiner();
     }
 
     private class WordCountCombiner
-            extends Combiner<String, Long, Long> {
+            extends Combiner<Long, Long> {
 
         private long sum = 0;
 
         @Override
-        public void combine(String key, Long value) {
-            // Increment the per chunk sum
-            sum++;
+        public void combine(Long aLong) {
+            sum += aLong;
         }
 
         @Override

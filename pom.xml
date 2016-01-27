@@ -8,12 +8,53 @@
     <artifactId>hazelcast-map-reduce</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <java.version.source>1.7</java.version.source>
+        <java.version.target>1.7</java.version.target>
+        <project.build.sourceEncoding>iso-8859-1</project.build.sourceEncoding>
+        <hazelcast.version>3.5.5</hazelcast.version>
+    </properties>
+    
     <dependencies>
         <dependency>
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast</artifactId>
-            <version>3.2-RC2</version>
+            <version>${hazelcast.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast-client</artifactId>
+            <version>${hazelcast.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version.source}</source>
+                    <target>${java.version.target}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <optimize>false</optimize>
+                    <debug>true</debug>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- Jar file entry point -->
+                            <mainClass>com.hazelcast.example.mapreduce.MapReduceDemo</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
