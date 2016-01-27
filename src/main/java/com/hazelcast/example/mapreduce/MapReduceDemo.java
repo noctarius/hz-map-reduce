@@ -16,6 +16,9 @@
 
 package com.hazelcast.example.mapreduce;
 
+import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.client.config.ClientConfig;
+import com.hazelcast.config.GroupConfig;
 import com.hazelcast.core.ExecutionCallback;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
@@ -46,7 +49,7 @@ public class MapReduceDemo {
     public static void main(String[] args)
             throws Exception {
 
-        HazelcastInstance hazelcastInstance = Hazelcast.newHazelcastInstance();
+        HazelcastInstance hazelcastInstance = getHazelCastClient();
 
         try {
             fillMapWithData(hazelcastInstance);
@@ -146,6 +149,20 @@ public class MapReduceDemo {
             is.close();
             reader.close();
         }
+    }
+
+    public static HazelcastInstance getHazelCastClient(){
+        /*try {
+            ClientConfig clientConfig = new ClientConfig();
+            String addresses = "sg1lxportal360-01.ap.equinix.com:5701";
+            clientConfig.setGroupConfig(new GroupConfig("mkp-dev","mkp-dev-pwd"));
+            clientConfig.getNetworkConfig().addAddress(addresses.split(","));
+            HazelcastInstance client = HazelcastClient.newHazelcastClient(clientConfig);
+            return client;
+        }catch (Exception e){
+            e.printStackTrace();
+        }*/
+        return Hazelcast.newHazelcastInstance();
     }
 
 }

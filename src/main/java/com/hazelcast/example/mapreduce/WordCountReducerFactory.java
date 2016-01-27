@@ -23,13 +23,13 @@ public class WordCountReducerFactory
         implements ReducerFactory<String, Long, Long> {
 
     @Override
-    public Reducer<String, Long, Long> newReducer(String key) {
+    public Reducer<Long, Long> newReducer(String key) {
         // Create a new Reducer for the given key
         return new WordCountReducer();
     }
 
     private class WordCountReducer
-            extends Reducer<String, Long, Long> {
+            extends Reducer<Long, Long> {
 
         private volatile long sum = 0;
 
