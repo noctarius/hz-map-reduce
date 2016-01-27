@@ -154,8 +154,8 @@ public class MapReduceDemo {
     public static HazelcastInstance getHazelCastClient(){
         /*try {
             ClientConfig clientConfig = new ClientConfig();
-            String addresses = "sg1lxportal360-01.ap.equinix.com:5701";
-            clientConfig.setGroupConfig(new GroupConfig("mkp-dev","mkp-dev-pwd"));
+            String addresses = "localhost.com:5701";
+            clientConfig.setGroupConfig(new GroupConfig("dev","dev-pwd"));
             clientConfig.getNetworkConfig().addAddress(addresses.split(","));
             HazelcastInstance client = HazelcastClient.newHazelcastClient(clientConfig);
             return client;
